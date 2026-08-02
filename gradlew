@@ -3,45 +3,52 @@
 set -eu
 
 APP_HOME=$(cd "${0%/*}" >/dev/null 2>&1 && pwd -P)
-WRAPPER_JAR="$APP_HOME/gradle/wrapper/gradle-wrapper.jar"
-WRAPPER_URL="https://services.gradle.org/distributions/gradle-9.5.0-wrapper.jar"
-WRAPPER_SHA256="497c8c2a7e5031f6aa847f88104aa80a93532ec32ee17bdb8d1d2f67a194a9c7"
+GRADLE_VERSION="9.5.0"
+DIST_URL="https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip"
+DIST_SHA256="553c78f50dafcd54d65b9a444649057857469edf836431389695608536d6b746"
+CACHE_ROOT="${GRADLE_USER_HOME:-${HOME}/.gradle}/wrapper/dists/onestep-gradle-${GRADLE_VERSION}"
+DIST_ZIP="$CACHE_ROOT/gradle-${GRADLE_VERSION}-bin.zip"
+GRADLE_BIN="$CACHE_ROOT/gradle-${GRADLE_VERSION}/bin/gradle"
 
-verify_wrapper() {
+verify_distribution() {
     if command -v sha256sum >/dev/null 2>&1; then
-        printf '%s  %s\n' "$WRAPPER_SHA256" "$WRAPPER_JAR" | sha256sum --check --status
+        printf '%s  %s\n' "$DIST_SHA256" "$DIST_ZIP" | sha256sum --check --status
     elif command -v shasum >/dev/null 2>&1; then
-        [ "$(shasum -a 256 "$WRAPPER_JAR" | awk '{print $1}')" = "$WRAPPER_SHA256" ]
+        [ "$(shasum -a 256 "$DIST_ZIP" | awk '{print $1}')" = "$DIST_SHA256" ]
     else
-        echo "ERROR: sha256sum or shasum is required to verify Gradle Wrapper." >&2
+        echo "ERROR: sha256sum or shasum is required to verify Gradle." >&2
         return 1
     fi
 }
 
-if [ ! -f "$WRAPPER_JAR" ] || ! verify_wrapper; then
-    mkdir -p "$(dirname "$WRAPPER_JAR")"
-    TMP_JAR="$WRAPPER_JAR.tmp"
-    rm -f "$TMP_JAR"
-    if command -v curl >/dev/null 2>&1; then
-        curl --fail --location --silent --show-error "$WRAPPER_URL" --output "$TMP_JAR"
-    elif command -v wget >/dev/null 2>&1; then
-        wget -q "$WRAPPER_URL" -O "$TMP_JAR"
-    else
-        echo "ERROR: curl or wget is required to download Gradle Wrapper." >&2
+if [ ! -x "$GRADLE_BIN" ]; then
+    mkdir -p "$CACHE_ROOT"
+    if [ ! -f "$DIST_ZIP" ] || ! verify_distribution; then
+        TMP_ZIP="$DIST_ZIP.tmp"
+        rm -f "$TMP_ZIP" "$DIST_ZIP"
+        if command -v curl >/dev/null 2>&1; then
+            curl --fail --location --show-error "$DIST_URL" --output "$TMP_ZIP"
+        elif command -v wget >/dev/null 2>&1; then
+            wget "$DIST_URL" -O "$TMP_ZIP"
+        else
+            echo "ERROR: curl or wget is required to download Gradle." >&2
+            exit 1
+        fi
+        mv "$TMP_ZIP" "$DIST_ZIP"
+    fi
+
+    if ! verify_distribution; then
+        rm -f "$DIST_ZIP"
+        echo "ERROR: Gradle distribution checksum verification failed." >&2
         exit 1
     fi
-    mv "$TMP_JAR" "$WRAPPER_JAR"
-    if ! verify_wrapper; then
-        rm -f "$WRAPPER_JAR"
-        echo "ERROR: Gradle Wrapper checksum verification failed." >&2
+
+    rm -rf "$CACHE_ROOT/gradle-${GRADLE_VERSION}"
+    if ! command -v unzip >/dev/null 2>&1; then
+        echo "ERROR: unzip is required to extract Gradle." >&2
         exit 1
     fi
+    unzip -q "$DIST_ZIP" -d "$CACHE_ROOT"
 fi
 
-if [ -n "${JAVA_HOME:-}" ]; then
-    JAVACMD="$JAVA_HOME/bin/java"
-else
-    JAVACMD=java
-fi
-
-exec "$JAVACMD" -Dorg.gradle.appname=gradlew -classpath "$WRAPPER_JAR" org.gradle.wrapper.GradleWrapperMain "$@"
+exec "$GRADLE_BIN" -p "$APP_HOME" "$@"
