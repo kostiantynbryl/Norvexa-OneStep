@@ -33,7 +33,7 @@
 - DataStore Preferences;
 - WorkManager;
 - Coroutines and Flow;
-- minSdk 26, targetSdk 36, compileSdk 37;
+- minSdk 26, targetSdk 36, compileSdk 36;
 - Java 17 toolchain.
 
 ## Build
@@ -41,7 +41,7 @@
 Requirements:
 
 - Android Studio with JDK 17;
-- Android SDK Platform 37;
+- Android SDK Platform 36;
 - Android SDK Build Tools 36.0.0.
 
 ```bash
