@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.norvexa.onestep"
-    compileSdk = 37
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.norvexa.onestep"
@@ -33,7 +33,6 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-
 
     buildFeatures {
         compose = true
