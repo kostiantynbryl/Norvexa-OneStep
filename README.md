@@ -44,11 +44,19 @@ Requirements:
 - Android SDK Platform 36;
 - Android SDK Build Tools 36.0.0.
 
+Linux/macOS:
+
 ```bash
 ./gradlew testDebugUnitTest lintDebug assembleDebug
 ```
 
-On the first command-line run, the launcher downloads the official Gradle 9.5.0 wrapper JAR and verifies its published SHA-256 checksum before execution.
+Windows:
+
+```bat
+gradlew.bat testDebugUnitTest lintDebug assembleDebug
+```
+
+On the first command-line run, the launcher downloads the official Gradle 9.5.0 binary distribution and verifies its published SHA-256 checksum before extraction.
 
 Debug APK:
 
