@@ -56,11 +56,13 @@ fun TodayScreen(
     onSkip: (String, String) -> Unit,
 ) {
     val goal = data.goals.firstOrNull { it.status == GoalStatus.ACTIVE }
+    val createGoalDescription = stringResource(R.string.accessibility_create_goal)
+    val stepDoneDescription = stringResource(R.string.accessibility_step_done)
     Scaffold(
         floatingActionButton = {
             FloatingActionButton(
                 onClick = onCreateGoal,
-                modifier = Modifier.semantics { contentDescription = stringResource(R.string.accessibility_create_goal) },
+                modifier = Modifier.semantics { contentDescription = createGoalDescription },
             ) { Icon(Icons.Default.Add, contentDescription = null) }
         },
     ) { padding ->
@@ -102,7 +104,7 @@ fun TodayScreen(
                         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                             FilledTonalButton(
                                 onClick = { onComplete(goal.id, step.id, step.estimatedMinutes) },
-                                modifier = Modifier.weight(1f).semantics { contentDescription = stringResource(R.string.accessibility_step_done) },
+                                modifier = Modifier.weight(1f).semantics { contentDescription = stepDoneDescription },
                             ) {
                                 Icon(Icons.Default.Check, contentDescription = null)
                                 Text(stringResource(R.string.done))

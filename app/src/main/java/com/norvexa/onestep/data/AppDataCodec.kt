@@ -18,7 +18,7 @@ object AppDataCodec {
         put("onboardingComplete", data.onboardingComplete)
         put("goals", JSONArray().apply { data.goals.forEach { put(goalToJson(it)) } })
         put("settings", settingsToJson(data.settings))
-        put("activityDates", JSONArray().apply { data.activityDates.sorted().forEach(::put) })
+        put("activityDates", JSONArray().apply { data.activityDates.sorted().forEach { put(it) } })
     }.toString()
 
     fun decode(raw: String?): AppData {

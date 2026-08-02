@@ -139,7 +139,7 @@ fun OneStepRoot(
                     composable(Routes.NewGoal) {
                         GoalEditorScreen(
                             existing = null,
-                            onBack = navController::popBackStack,
+                            onBack = { navController.popBackStack() },
                             onCreate = { title, description, category, minutes, days ->
                                 viewModel.createGoal(title, description, category, minutes, days) { id ->
                                     navController.navigate(Routes.detail(id)) {
@@ -155,7 +155,7 @@ fun OneStepRoot(
                         val goal = data.goals.firstOrNull { it.id == goalId }
                         GoalDetailScreen(
                             goal = goal,
-                            onBack = navController::popBackStack,
+                            onBack = { navController.popBackStack() },
                             onEdit = { navController.navigate(Routes.edit(goalId)) },
                             onFocus = { stepId -> navController.navigate(Routes.focus(goalId, stepId)) },
                             onActivate = { viewModel.activateGoal(goalId) },
@@ -184,7 +184,7 @@ fun OneStepRoot(
                         val goal = data.goals.firstOrNull { it.id == goalId }
                         GoalEditorScreen(
                             existing = goal,
-                            onBack = navController::popBackStack,
+                            onBack = { navController.popBackStack() },
                             onCreate = { _, _, _, _, _ -> },
                             onUpdate = { title, description, category ->
                                 viewModel.updateGoal(goalId, title, description, category)
@@ -200,7 +200,7 @@ fun OneStepRoot(
                         FocusScreen(
                             goal = goal,
                             step = step,
-                            onBack = navController::popBackStack,
+                            onBack = { navController.popBackStack() },
                             onStarted = { viewModel.startStep(goalId, stepId) },
                             onComplete = { actualMinutes ->
                                 viewModel.completeStep(goalId, stepId, actualMinutes)
