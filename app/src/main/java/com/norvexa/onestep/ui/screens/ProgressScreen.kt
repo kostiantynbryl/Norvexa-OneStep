@@ -24,7 +24,10 @@ import com.norvexa.onestep.model.allSteps
 import com.norvexa.onestep.model.calculateStreak
 
 @Composable
-fun ProgressScreen(data: AppData) {
+fun ProgressScreen(
+    data: AppData,
+    onOpenGoal: (String) -> Unit,
+) {
     val completedGoals = data.goals.count { it.status == GoalStatus.COMPLETED }
     val completedSteps = data.goals.sumOf { goal -> goal.allSteps().count { it.status == StepStatus.COMPLETED } }
     val streak = calculateStreak(data.activityDates)
@@ -50,7 +53,7 @@ fun ProgressScreen(data: AppData) {
         if (data.goals.isNotEmpty()) {
             SectionLabel(stringResource(R.string.goals))
             data.goals.sortedByDescending { it.createdAt }.forEach { goal ->
-                GoalSummaryCard(goal = goal, onClick = {})
+                GoalSummaryCard(goal = goal, onClick = { onOpenGoal(goal.id) })
             }
         }
     }
