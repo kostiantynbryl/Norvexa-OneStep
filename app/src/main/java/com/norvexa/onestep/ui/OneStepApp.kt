@@ -2,6 +2,9 @@ package com.norvexa.onestep.ui
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.BarChart
@@ -10,14 +13,19 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.NavHost
@@ -63,8 +71,11 @@ fun OneStepRoot(
     val isReady by viewModel.isReady.collectAsStateWithLifecycle()
     OneStepTheme(data.settings.themeMode) {
         if (!isReady) {
-            Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                CircularProgressIndicator()
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center,
+            ) {
+                CircularProgressIndicator(strokeWidth = 3.dp)
             }
         } else if (!data.onboardingComplete) {
             OnboardingScreen(onStart = viewModel::completeOnboarding)
@@ -73,28 +84,52 @@ fun OneStepRoot(
             val bottomRoutes = setOf(Routes.Today, Routes.Goals, Routes.Progress, Routes.Settings)
             val backStack by navController.currentBackStackEntryAsState()
             val currentRoute = backStack?.destination?.route
+
             Scaffold(
+                containerColor = MaterialTheme.colorScheme.background,
                 bottomBar = {
                     if (currentRoute in bottomRoutes) {
-                        NavigationBar {
-                            listOf(
-                                Triple(Routes.Today, R.string.today, Icons.Default.Home),
-                                Triple(Routes.Goals, R.string.goals, Icons.Default.CheckCircle),
-                                Triple(Routes.Progress, R.string.progress, Icons.Default.BarChart),
-                                Triple(Routes.Settings, R.string.settings, Icons.Default.Settings),
-                            ).forEach { (route, label, icon) ->
-                                NavigationBarItem(
-                                    selected = currentRoute == route,
-                                    onClick = {
-                                        navController.navigate(route) {
-                                            popUpTo(navController.graph.findStartDestination().id) { saveState = true }
-                                            launchSingleTop = true
-                                            restoreState = true
-                                        }
-                                    },
-                                    icon = { Icon(icon, contentDescription = stringResource(label)) },
-                                    label = { androidx.compose.material3.Text(stringResource(label)) },
-                                )
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .navigationBarsPadding()
+                                .padding(horizontal = 12.dp, vertical = 8.dp),
+                        ) {
+                            NavigationBar(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(68.dp)
+                                    .clip(MaterialTheme.shapes.extraLarge),
+                                containerColor = MaterialTheme.colorScheme.surfaceContainer,
+                                tonalElevation = 0.dp,
+                            ) {
+                                listOf(
+                                    Triple(Routes.Today, R.string.today, Icons.Default.Home),
+                                    Triple(Routes.Goals, R.string.goals, Icons.Default.CheckCircle),
+                                    Triple(Routes.Progress, R.string.progress, Icons.Default.BarChart),
+                                    Triple(Routes.Settings, R.string.settings, Icons.Default.Settings),
+                                ).forEach { (route, label, icon) ->
+                                    val selected = currentRoute == route
+                                    NavigationBarItem(
+                                        selected = selected,
+                                        onClick = {
+                                            navController.navigate(route) {
+                                                popUpTo(navController.graph.findStartDestination().id) { saveState = true }
+                                                launchSingleTop = true
+                                                restoreState = true
+                                            }
+                                        },
+                                        icon = { Icon(icon, contentDescription = stringResource(label)) },
+                                        label = { Text(stringResource(label)) },
+                                        colors = NavigationBarItemDefaults.colors(
+                                            selectedIconColor = MaterialTheme.colorScheme.primary,
+                                            selectedTextColor = MaterialTheme.colorScheme.primary,
+                                            indicatorColor = MaterialTheme.colorScheme.primaryContainer,
+                                            unselectedIconColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                                            unselectedTextColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                                        ),
+                                    )
+                                }
                             }
                         }
                     }
