@@ -160,7 +160,12 @@ fun OneStepRoot(
                             onActivate = viewModel::activateGoal,
                         )
                     }
-                    composable(Routes.Progress) { ProgressScreen(data) }
+                    composable(Routes.Progress) {
+                        ProgressScreen(
+                            data = data,
+                            onOpenGoal = { navController.navigate(Routes.detail(it)) },
+                        )
+                    }
                     composable(Routes.Settings) {
                         SettingsScreen(
                             settings = data.settings,
