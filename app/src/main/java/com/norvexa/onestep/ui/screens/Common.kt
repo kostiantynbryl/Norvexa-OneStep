@@ -136,7 +136,11 @@ fun GoalSummaryCard(goal: Goal, onClick: () -> Unit, trailing: @Composable (() -
 }
 
 @Composable
-fun StepRow(step: Step, onClick: (() -> Unit)? = null) {
+fun StepRow(
+    step: Step,
+    onClick: (() -> Unit)? = null,
+    trailing: @Composable (() -> Unit)? = null,
+) {
     val content: @Composable () -> Unit = {
         Row(
             modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 14.dp),
@@ -174,6 +178,7 @@ fun StepRow(step: Step, onClick: (() -> Unit)? = null) {
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
+            trailing?.invoke()
         }
     }
     if (onClick != null) {
