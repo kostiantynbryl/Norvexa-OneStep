@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">OneStep</string><string name="tagline">Wielkie cele zaczynają się od jednego kroku</string><string name="onboarding_title">Nie cała droga. Tylko następny krok.</string><string name="onboarding_body">Opisz cel, otrzymaj przejrzysty plan i wykonuj jedno małe działanie naraz bez przeciążenia.</string>
+    <string name="start">Zacznij</string><string name="today">Dzisiaj</string><string name="goals">Cele</string><string name="progress">Postęp</string><string name="settings">Ustawienia</string><string name="new_goal">Nowy cel</string>
+    <string name="no_goals_title">Utwórz pierwszy cel</string><string name="no_goals_body">OneStep zamieni go w sekwencję małych działań.</string><string name="current_step">Następny krok</string><string name="done">Gotowe</string><string name="postpone">Na jutro</string><string name="split_smaller">Podziel na mniejsze</string><string name="skip">Pomiń</string><string name="focus">Skupienie</string>
+    <string name="minutes_format">%1$d min</string><string name="completed_format">Wykonano: %1$d z %2$d</string><string name="goal_title">Nazwa celu</string><string name="goal_description">Jaki rezultat chcesz osiągnąć?</string><string name="category">Kategoria</string><string name="daily_minutes">Minut dziennie</string><string name="deadline_days">Termin w dniach</string>
+    <string name="save">Zapisz</string><string name="cancel">Anuluj</string><string name="goal_details">Plan celu</string><string name="activate">Ustaw jako aktywny</string><string name="pause">Wstrzymaj</string><string name="resume">Wznów</string><string name="delete">Usuń</string><string name="delete_confirmation">Usunąć cel bez możliwości odzyskania?</string><string name="steps">Kroki</string>
+    <string name="focus_session">Sesja skupienia</string><string name="finish_session">Ukończ krok</string><string name="stop">Zatrzymaj</string><string name="total_goals">Wszystkie cele</string><string name="completed_goals">Ukończone cele</string><string name="completed_steps">Ukończone kroki</string><string name="streak">Seria dni</string>
+    <string name="appearance">Wygląd</string><string name="theme_system">Systemowy</string><string name="theme_light">Jasny</string><string name="theme_dark">Ciemny</string><string name="theme_amoled">AMOLED</string><string name="language">Język</string><string name="language_system">Jak w systemie</string>
+    <string name="reminders">Przypomnienia</string><string name="daily_reminder">Codziennie o 09:00</string><string name="backup">Kopia zapasowa</string><string name="export_json">Eksport JSON</string><string name="import_json">Import JSON</string><string name="import_success">Dane przywrócone</string><string name="import_error">Nie udało się zaimportować pliku</string>
+    <string name="about">O aplikacji</string><string name="version_format">Wersja %1$s</string><string name="notification_channel">Następny krok</string><string name="notification_channel_description">Codzienne przypomnienia o bieżącym kroku</string><string name="notification_title">Twój następny krok</string>
+    <string name="all_done_title">Na razie wszystko gotowe</string><string name="all_done_body">Wybierz nowy cel lub dodaj kolejne kroki.</string><string name="required_field">Wpisz nazwę celu</string><string name="back">Wstecz</string><string name="active">Aktywny</string><string name="draft">Szkic</string><string name="paused">Wstrzymany</string><string name="completed">Ukończony</string><string name="days_left_format">Pozostało dni: %1$d</string>
+    <string name="accessibility_step_done">Oznacz bieżący krok jako ukończony</string><string name="accessibility_create_goal">Utwórz nowy cel</string><string name="template_hint">Po zapisaniu zostanie utworzony plan startowy, który można później zmienić.</string><string name="edit_goal">Edycja celu</string><string name="close">Zamknij</string>
+
+    <string name="archived">Archiwum</string>
+    <string name="category_work">Praca</string>
+    <string name="category_learning">Nauka</string>
+    <string name="category_health">Zdrowie</string>
+    <string name="category_business">Biznes</string>
+    <string name="category_finance">Finanse</string>
+    <string name="category_development">Programowanie</string>
+    <string name="category_home">Dom</string>
+    <string name="category_creative">Twórczość</string>
+    <string name="category_other">Inne</string>
+
+    <string name="add_stage">Dodaj etap</string>
+    <string name="delete_stage">Usuń etap</string>
+    <string name="stage_title">Nazwa etapu</string>
+    <string name="add_step">Dodaj krok</string>
+    <string name="edit_step">Edytuj krok</string>
+    <string name="delete_step">Usuń krok</string>
+    <string name="step_title">Nazwa kroku</string>
+    <string name="step_description">Opis lub notatka</string>
+    <string name="estimated_minutes">Szacowany czas w minutach</string>
+    <string name="move_up">Przenieś wyżej</string>
+    <string name="move_down">Przenieś niżej</string>
+    <string name="goal_not_found">Nie znaleziono celu</string>
+</resources>

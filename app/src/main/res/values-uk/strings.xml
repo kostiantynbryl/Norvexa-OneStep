@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">OneStep</string><string name="tagline">Великі цілі починаються з одного кроку</string><string name="onboarding_title">Не весь шлях. Лише наступний крок.</string><string name="onboarding_body">Опишіть ціль, отримайте зрозумілий план і виконуйте по одній невеликій дії без перевантаження.</string>
+    <string name="start">Почати</string><string name="today">Сьогодні</string><string name="goals">Цілі</string><string name="progress">Прогрес</string><string name="settings">Налаштування</string><string name="new_goal">Нова ціль</string>
+    <string name="no_goals_title">Створіть першу ціль</string><string name="no_goals_body">OneStep перетворить її на послідовність невеликих дій.</string><string name="current_step">Наступний крок</string><string name="done">Готово</string><string name="postpone">На завтра</string><string name="split_smaller">Розбити дрібніше</string><string name="skip">Пропустити</string><string name="focus">Фокус</string>
+    <string name="minutes_format">%1$d хв</string><string name="completed_format">Виконано: %1$d з %2$d</string><string name="goal_title">Назва цілі</string><string name="goal_description">Який результат ви хочете отримати?</string><string name="category">Категорія</string><string name="daily_minutes">Хвилин на день</string><string name="deadline_days">Термін у днях</string>
+    <string name="save">Зберегти</string><string name="cancel">Скасувати</string><string name="goal_details">План цілі</string><string name="activate">Зробити активною</string><string name="pause">Поставити на паузу</string><string name="resume">Продовжити</string><string name="delete">Видалити</string><string name="delete_confirmation">Видалити ціль без можливості відновлення?</string><string name="steps">Кроки</string>
+    <string name="focus_session">Фокус-сесія</string><string name="finish_session">Завершити крок</string><string name="stop">Зупинити</string><string name="total_goals">Усього цілей</string><string name="completed_goals">Завершено цілей</string><string name="completed_steps">Виконано кроків</string><string name="streak">Серія днів</string>
+    <string name="appearance">Оформлення</string><string name="theme_system">Системна</string><string name="theme_light">Світла</string><string name="theme_dark">Темна</string><string name="theme_amoled">AMOLED</string><string name="language">Мова</string><string name="language_system">Як у системі</string>
+    <string name="reminders">Нагадування</string><string name="daily_reminder">Щодня о 09:00</string><string name="backup">Резервна копія</string><string name="export_json">Експорт JSON</string><string name="import_json">Імпорт JSON</string><string name="import_success">Дані відновлено</string><string name="import_error">Не вдалося імпортувати файл</string>
+    <string name="about">Про застосунок</string><string name="version_format">Версія %1$s</string><string name="notification_channel">Наступний крок</string><string name="notification_channel_description">Щоденні нагадування про поточний крок</string><string name="notification_title">Ваш наступний крок</string>
+    <string name="all_done_title">Наразі все виконано</string><string name="all_done_body">Оберіть нову ціль або додайте наступні кроки.</string><string name="required_field">Введіть назву цілі</string><string name="back">Назад</string><string name="active">Активна</string><string name="draft">Чернетка</string><string name="paused">На паузі</string><string name="completed">Завершена</string><string name="days_left_format">Залишилося днів: %1$d</string>
+    <string name="accessibility_step_done">Позначити поточний крок виконаним</string><string name="accessibility_create_goal">Створити нову ціль</string><string name="template_hint">Після збереження буде створено стартовий план, який можна змінювати.</string><string name="edit_goal">Редагування цілі</string><string name="close">Закрити</string>
+
+    <string name="archived">Архів</string>
+    <string name="category_work">Робота</string>
+    <string name="category_learning">Навчання</string>
+    <string name="category_health">Здоров’я</string>
+    <string name="category_business">Бізнес</string>
+    <string name="category_finance">Фінанси</string>
+    <string name="category_development">Розробка</string>
+    <string name="category_home">Дім</string>
+    <string name="category_creative">Творчість</string>
+    <string name="category_other">Інше</string>
+
+    <string name="add_stage">Додати етап</string>
+    <string name="delete_stage">Видалити етап</string>
+    <string name="stage_title">Назва етапу</string>
+    <string name="add_step">Додати крок</string>
+    <string name="edit_step">Редагувати крок</string>
+    <string name="delete_step">Видалити крок</string>
+    <string name="step_title">Назва кроку</string>
+    <string name="step_description">Опис або нотатка</string>
+    <string name="estimated_minutes">Оцінка часу, хвилин</string>
+    <string name="move_up">Перемістити вище</string>
+    <string name="move_down">Перемістити нижче</string>
+    <string name="goal_not_found">Ціль не знайдено</string>
+</resources>

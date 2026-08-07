@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">OneStep</string>
+    <string name="tagline">Big goals begin with one step</string>
+    <string name="onboarding_title">Not the whole path. Just the next step.</string>
+    <string name="onboarding_body">Describe a goal, get a clear plan, and complete one small action at a time without overload.</string>
+    <string name="start">Start</string><string name="today">Today</string><string name="goals">Goals</string><string name="progress">Progress</string><string name="settings">Settings</string>
+    <string name="new_goal">New goal</string><string name="no_goals_title">Create your first goal</string><string name="no_goals_body">OneStep will turn it into a sequence of small actions.</string>
+    <string name="current_step">Next step</string><string name="done">Done</string><string name="postpone">Tomorrow</string><string name="split_smaller">Split smaller</string><string name="skip">Skip</string><string name="focus">Focus</string>
+    <string name="minutes_format">%1$d min</string><string name="completed_format">Completed: %1$d of %2$d</string>
+    <string name="goal_title">Goal title</string><string name="goal_description">What result do you want?</string><string name="category">Category</string><string name="daily_minutes">Minutes per day</string><string name="deadline_days">Deadline in days</string>
+    <string name="save">Save</string><string name="cancel">Cancel</string><string name="goal_details">Goal plan</string><string name="activate">Make active</string><string name="pause">Pause</string><string name="resume">Resume</string><string name="delete">Delete</string><string name="delete_confirmation">Delete this goal permanently?</string><string name="steps">Steps</string>
+    <string name="focus_session">Focus session</string><string name="finish_session">Complete step</string><string name="stop">Stop</string>
+    <string name="total_goals">Total goals</string><string name="completed_goals">Completed goals</string><string name="completed_steps">Completed steps</string><string name="streak">Day streak</string>
+    <string name="appearance">Appearance</string><string name="theme_system">System</string><string name="theme_light">Light</string><string name="theme_dark">Dark</string><string name="theme_amoled">AMOLED</string>
+    <string name="language">Language</string><string name="language_system">System default</string><string name="reminders">Reminders</string><string name="daily_reminder">Daily at 09:00</string>
+    <string name="backup">Backup</string><string name="export_json">Export JSON</string><string name="import_json">Import JSON</string><string name="import_success">Data restored</string><string name="import_error">Could not import the file</string>
+    <string name="about">About</string><string name="version_format">Version %1$s</string><string name="notification_channel">Next step</string><string name="notification_channel_description">Daily reminders about your current step</string><string name="notification_title">Your next step</string>
+    <string name="all_done_title">Everything is complete for now</string><string name="all_done_body">Choose a new goal or add more steps.</string><string name="required_field">Enter a goal title</string><string name="back">Back</string>
+    <string name="active">Active</string><string name="draft">Draft</string><string name="paused">Paused</string><string name="completed">Completed</string><string name="days_left_format">Days left: %1$d</string>
+    <string name="accessibility_step_done">Mark the current step as completed</string><string name="accessibility_create_goal">Create a new goal</string><string name="template_hint">A starter plan will be created after saving. You can edit it later.</string><string name="edit_goal">Edit goal</string><string name="close">Close</string>
+
+    <string name="archived">Archived</string>
+    <string name="category_work">Work</string>
+    <string name="category_learning">Learning</string>
+    <string name="category_health">Health</string>
+    <string name="category_business">Business</string>
+    <string name="category_finance">Finance</string>
+    <string name="category_development">Development</string>
+    <string name="category_home">Home</string>
+    <string name="category_creative">Creative</string>
+    <string name="category_other">Other</string>
+
+    <string name="add_stage">Add stage</string>
+    <string name="delete_stage">Delete stage</string>
+    <string name="stage_title">Stage title</string>
+    <string name="add_step">Add step</string>
+    <string name="edit_step">Edit step</string>
+    <string name="delete_step">Delete step</string>
+    <string name="step_title">Step title</string>
+    <string name="step_description">Description or note</string>
+    <string name="estimated_minutes">Estimated minutes</string>
+    <string name="move_up">Move up</string>
+    <string name="move_down">Move down</string>
+    <string name="goal_not_found">Goal not found</string>
+</resources>
